@@ -140,4 +140,4 @@ MIT License. See LICENSE for details.
 ## 🤝 Contributing
 Contributions are welcome! Please open an issue or pull request for suggestions or improvements.
 
-Built with ❤️ by [fapjul](linkedin.com/in/faojul-ahsan)
+Built with ❤️ by [faojul](linkedin.com/in/faojul-ahsan)
