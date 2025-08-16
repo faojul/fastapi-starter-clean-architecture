@@ -9,7 +9,7 @@ from app.models.user import User
 from app.core.security import create_access_token, verify_password
 from sqlalchemy.ext.asyncio import AsyncSession
 
-router = APIRouter()
+router = APIRouter(prefix="/users", tags=["user"])
 
 @router.post("/token")
 async def login(
@@ -23,22 +23,22 @@ async def login(
     access_token = create_access_token(data={"sub": user.email})
     return {"access_token": access_token, "token_type": "bearer"}
 
-@router.post("/users", response_model=UserInDB)
+@router.post("/", response_model=UserInDB)
 async def create_user(user: UserCreate, db: AsyncSession = Depends(get_db)):
     user_service = UserService(UserRepository(db))
     return await user_service.create_user(user)
 
-@router.get("/users", response_model=List[UserInDB])
+@router.get("/", response_model=List[UserInDB])
 async def get_users(skip: int = 0, limit: int = 100, current_user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
     user_service = UserService(UserRepository(db))
     return await user_service.get_users(skip, limit, current_user)
 
-@router.put("/users/{user_id}", response_model=UserInDB)
+@router.put("/{user_id}", response_model=UserInDB)
 async def update_user(user_id: int, user_update: UserUpdate, current_user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
     user_service = UserService(UserRepository(db))
     return await user_service.update_user(user_id, user_update, current_user)
 
-@router.delete("/users/{user_id}")
+@router.delete("/{user_id}")
 async def delete_user(user_id: int, current_user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
     user_service = UserService(UserRepository(db))
     await user_service.delete_user(user_id, current_user)

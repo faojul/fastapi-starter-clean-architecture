@@ -6,13 +6,19 @@ from app.api.routers import users
 from app.models.user import Base
 
 app = FastAPI(
-    title="My Awesome API",
-    description="This is my FastAPI project with Swagger docs",
+    title="FastAPI Starter API",
+    description="A production-ready FastAPI project showcasing clean architecture, JWT authentication, and PostgreSQL integration. Built on August 16, 2025, 12:00 PM +06.",
     version="1.0.0",
     contact={
         "name": "Your Name",
-        "email": "your-email@example.com"
+        "email": "your.email@example.com",
     },
+    openapi_tags=[
+        {
+            "name": "user",
+            "description": "Endpoints for user management and authentication."
+        }
+    ],
     docs_url="/swagger",  # change Swagger UI URL if you want
     redoc_url="/redoc",   # change Redoc URL if you want
 )

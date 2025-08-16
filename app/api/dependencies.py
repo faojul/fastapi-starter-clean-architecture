@@ -8,7 +8,7 @@ from app.models.user import User
 from app.repositories.user_repository import UserRepository
 from app.schemas.user import UserInDB
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/users/token")
 
 async def get_db():
     from app.main import async_session
