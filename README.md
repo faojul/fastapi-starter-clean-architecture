@@ -1,4 +1,4 @@
-# FastAPI Starter Project 🚀
+# 🚀 FastAPI Starter with Clean Architecture
 A production-ready FastAPI project showcasing clean architecture, JWT authentication, role-based authorization, and PostgreSQL integration. Built with best practices, this project is ideal for scalable, enterprise-grade applications and serves as a strong portfolio piece for senior Python developer roles.
 
 ## 🎯 Features
